@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:prototipo_v1/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SingIn());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SingIn extends StatelessWidget {
+  const SingIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +28,22 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sing In Form'),
+        backgroundColor: Colors.blue, // Cambio de color de la AppBar
+        title: const Text('Sign In Form'),
+        leading: IconButton( // Añadir un botón de retroceso
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+                    final ruta = MaterialPageRoute(builder: (context){
+                      return const MyApp();
+                    });
+                    Navigator.push(context, ruta);
+                  },
+        ),
       ),
       body: Center(
         child: Container(
           width: 300,
-          height: 600,
+          height: 550,
           decoration: BoxDecoration(
             color: Colors.blue, // Color del fondo
             borderRadius: BorderRadius.circular(20.0),
@@ -51,70 +62,59 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
+                const Text(
+                  'Sign In',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Container(
+                  height: 230, // Ajuste de la altura del cuadro blanco
                   decoration: BoxDecoration(
                     color: Colors.white, // Color del cuadrado interior
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(15.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Text(
+                        Text(
                           'Username',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextField(
+                        TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        const Text(
+                        SizedBox(height: 20),
+                        Text(
                           'Password',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextField(
+                        TextField(
                           obscureText: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                          'Confirm Password',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Login with Gmail'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Login with Facebook'),
-                        ),
-                        const SizedBox(height: 15),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Save'),
                         ),
                       ],
                     ),
                   ),
+                ),
+                const SizedBox(height: 25),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Sign In'),
                 ),
               ],
             ),

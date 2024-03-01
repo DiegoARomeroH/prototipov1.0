@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prototipo_v1/screens/parking.dart';
+import 'package:prototipo_v1/screens/sing_in.dart';
+import 'package:prototipo_v1/screens/sing_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,14 +30,15 @@ class ParkingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: const Text('Parking System'),
       ),
       body: Center(
         child: Container(
           width: 300,
-          height: 450,
+          height: 550,
           decoration: BoxDecoration(
-            color: Colors.blue, // Color del fondo
+            color: Colors.blue,
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Padding(
@@ -60,7 +64,12 @@ class ParkingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final ruta1 = MaterialPageRoute(builder: (context){
+                      return const ParkingApp();
+                    });
+                    Navigator.push(context, ruta1);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 15),
@@ -76,7 +85,12 @@ class ParkingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final ruta2 = MaterialPageRoute(builder: (context){
+                      return const SingIn();
+                    });
+                    Navigator.push(context, ruta2);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 15),
@@ -92,13 +106,18 @@ class ParkingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final ruta2 = MaterialPageRoute(builder: (context){
+                      return const RegistrationApp();
+                    });
+                    Navigator.push(context, ruta2);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 15),
                   ),
                   child: const Text(
-                    'Sign Up',
+                    'Log-in',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
